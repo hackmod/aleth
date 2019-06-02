@@ -270,7 +270,7 @@ int main(int argc, char** argv)
         "Listen on the given port for incoming connections (default: 30303)");
     addNetworkingOption("remote,r", po::value<string>()->value_name("<host>(:<port>)"),
         "Connect to the given remote host (default: none)");
-    addNetworkingOption("port", po::value<short>()->value_name("<port>"),
+    addNetworkingOption("port", po::value<unsigned short>()->value_name("<port>"),
         "Connect to the given remote port (default: 30303)");
     addNetworkingOption("network-id", po::value<unsigned>()->value_name("<n>"),
         "Only connect to other hosts with this network id");
@@ -548,14 +548,14 @@ int main(int argc, char** argv)
         if (found != std::string::npos)
         {
             remoteHost = host.substr(0, found);
-            remotePort = (short)atoi(host.substr(found + 1, host.length()).c_str());
+            remotePort = (unsigned short)atoi(host.substr(found + 1, host.length()).c_str());
         }
         else
             remoteHost = host;
     }
     if (vm.count("port"))
     {
-        remotePort = vm["port"].as<short>();
+        remotePort = vm["port"].as<unsigned short>();
     }
     if (vm.count("import"))
     {
