@@ -33,6 +33,7 @@ struct EVMSchedule
     bool haveDelegateCall = true;
     bool eip150Mode = false;
     bool eip158Mode = false;
+    bool eip160Mode = false;
     bool eip1283Mode = false;
     bool haveBitwiseShifting = false;
     bool haveRevert = false;
@@ -106,15 +107,22 @@ static const EVMSchedule EIP150Schedule = []
 static const EVMSchedule EIP158Schedule = []
 {
     EVMSchedule schedule = EIP150Schedule;
-    schedule.expByteGas = 50;
     schedule.eip158Mode = true;
+    return schedule;
+}();
+
+static const EVMSchedule EIP160Schedule = []
+{
+    EVMSchedule schedule = EIP158Schedule;
     schedule.maxCodeSize = 0x6000;
+    schedule.expByteGas = 50;
+    schedule.eip160Mode = true;
     return schedule;
 }();
 
 static const EVMSchedule ByzantiumSchedule = []
 {
-    EVMSchedule schedule = EIP158Schedule;
+    EVMSchedule schedule = EIP160Schedule;
     schedule.haveRevert = true;
     schedule.haveReturnData = true;
     schedule.haveStaticCall = true;

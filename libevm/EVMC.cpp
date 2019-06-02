@@ -20,7 +20,7 @@ evmc_revision toRevision(EVMSchedule const& _schedule) noexcept
         return EVMC_CONSTANTINOPLE;
     if (_schedule.haveRevert)
         return EVMC_BYZANTIUM;
-    if (_schedule.eip158Mode)
+    if (_schedule.eip160Mode)
         return EVMC_SPURIOUS_DRAGON;
     if (_schedule.eip150Mode)
         return EVMC_TANGERINE_WHISTLE;
