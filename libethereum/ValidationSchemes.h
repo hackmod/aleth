@@ -65,6 +65,7 @@ extern std::string const c_accountStartNonce;
 extern std::string const c_maximumExtraDataSize;
 extern std::string const c_tieBreakingGas;
 extern std::string const c_blockReward;
+extern std::string const c_eip649Reward;
 extern std::string const c_difficultyBoundDivisor;
 extern std::string const c_minimumDifficulty;
 extern std::string const c_durationLimit;

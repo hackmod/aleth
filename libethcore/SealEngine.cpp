@@ -176,6 +176,10 @@ EVMSchedule const& SealEngineBase::evmSchedule(u256 const& _blockNumber) const
 
 u256 SealEngineBase::blockReward(u256 const& _blockNumber) const
 {
+    if (_blockNumber > chainParams().byzantiumForkBlock) {
+        return chainParams().eip649Reward;
+    }
+
     EVMSchedule const& schedule{evmSchedule(_blockNumber)};
     return chainParams().blockReward(schedule);
 }

@@ -91,6 +91,8 @@ ChainParams ChainParams::loadConfig(
     cp.tieBreakingGas = params.count(c_tieBreakingGas) ? params[c_tieBreakingGas].get_bool() : true;
     if (params.count(c_blockReward))
         cp.setBlockReward(fromBigEndian<u256>(fromHex(params[c_blockReward].get_str())));
+    if (params.count(c_eip649Reward))
+        cp.eip649Reward = fromBigEndian<u256>(fromHex(params[c_eip649Reward].get_str()));
 
     auto setOptionalU256Parameter = [&params](u256 &_destination, string const& _name)
     {

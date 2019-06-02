@@ -66,6 +66,7 @@ string const c_accountStartNonce = "accountStartNonce";
 string const c_maximumExtraDataSize = "maximumExtraDataSize";
 string const c_tieBreakingGas = "tieBreakingGas";
 string const c_blockReward = "blockReward";
+string const c_eip649Reward = "eip649Reward";
 string const c_difficultyBoundDivisor = "difficultyBoundDivisor";
 string const c_minimumDifficulty = "minimumDifficulty";
 string const c_durationLimit = "durationLimit";
